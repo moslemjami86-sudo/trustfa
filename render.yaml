@@ -1,12 +1,10 @@
 # Deploy on Render.com — Blueprint
 # Dashboard → New → Blueprint → این فایل را وصل کنید
-
 services:
   - type: web
     name: trustfa
     runtime: python
     plan: free
-    rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
@@ -22,7 +20,6 @@ services:
         sync: false
       - key: PYTHON_VERSION
         value: "3.12.0"
-
 databases:
   - name: trustfa-db
     plan: free
